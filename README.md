@@ -6,9 +6,9 @@
 
 ## Demo
 
-> If GitHub does not render the embedded video in your browser, open the video directly: [assets/AureLine_App.mp4](assets/AureLine_App.mp4).
+> If GitHub does not render the embedded GIF in your browser, open it directly: [assets/AureLine_App.gif](assets/AureLine_App.gif).
 
-<video src="assets/AureLine_App.mp4" controls muted playsinline width="100%"></video>
+![AureLine app demo](assets/AureLine_App.gif)
 
 ## Table of Contents
 
@@ -104,7 +104,7 @@ flowchart LR
 ```text
 .
 ├── assets/                         # README/demo assets
-│   └── AureLine_App.mp4
+│   └── AureLine_App.gif
 ├── electron/                       # Electron main/preload process
 ├── public/
 │   ├── logo_aureline.png
@@ -233,7 +233,7 @@ Recommended focus marker nodes:
 
 ### GitHub Publishing Notes
 
-- `assets/AureLine_App.mp4` is about 41 MB, which is under GitHub's 100 MB single-file limit.
+- `assets/AureLine_App.gif` is about 86 MB, which is under GitHub's 100 MB single-file limit.
 - Future large videos, 3D assets, or model files above 100 MB should use Git LFS.
 - `dist/`, `dist-electron/`, `node_modules/`, and TypeScript build caches are intentionally ignored.
 - `public/mediapipe/wasm/` and `public/models/*.task` should stay committed because the runtime depends on local AI assets.
@@ -335,7 +335,7 @@ flowchart LR
 ```text
 .
 ├── assets/                         # Asset cho README/demo
-│   └── AureLine_App.mp4
+│   └── AureLine_App.gif
 ├── electron/                       # Electron main/preload process
 ├── public/
 │   ├── logo_aureline.png
@@ -464,7 +464,7 @@ Các focus marker nên có:
 
 ### Ghi chú khi public lên GitHub
 
-- `assets/AureLine_App.mp4` khoảng 41 MB, dưới giới hạn 100 MB/file của GitHub.
+- `assets/AureLine_App.gif` khoảng 86 MB, dưới giới hạn 100 MB/file của GitHub.
 - Nếu sau này có video, 3D asset hoặc model file lớn hơn 100 MB, nên dùng Git LFS.
 - `dist/`, `dist-electron/`, `node_modules/` và TypeScript cache đã được ignore.
 - `public/mediapipe/wasm/` và `public/models/*.task` nên được commit vì runtime phụ thuộc vào local AI assets.
