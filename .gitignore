@@ -1,0 +1,72 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+dist-electron/
+out/
+release/
+build/
+
+# TypeScript incremental cache
+*.tsbuildinfo
+
+# Generated from vite.config.ts by the TypeScript project build
+vite.config.js
+vite.config.d.ts
+
+# Test and coverage outputs
+coverage/
+.nyc_output/
+test-results/
+playwright-report/
+
+# Vite / tooling cache
+.vite/
+.cache/
+.eslintcache
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment and local secrets
+.env
+.env.*
+!.env.example
+
+# OS / editor metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+.idea/
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# Local runtime data
+*.local
+*.sqlite
+*.sqlite3
+
+# Electron packaging artifacts
+*.asar
+*.blockmap
+*.dmg
+*.exe
+*.AppImage
+*.deb
+*.rpm
+*.snap
+*.msi
+
+# Temporary exports and recordings
+tmp/
+temp/
+*.tmp

@@ -1,0 +1,917 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: #000000;
+  color: #FFFFFF;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+
+  /* Core palette (Dark Mode) */
+  --background: #000000;
+  --foreground: #FFFFFF;
+  --muted: rgba(235, 235, 245, 0.6);        /* Apple Secondary Label */
+  --muted-strong: rgba(235, 235, 245, 0.8); /* Apple Primary-ish Label */
+  --surface: #1C1C1E;                       /* Apple Secondary Grouped Background */
+  --surface-strong: #2C2C2E;                /* Apple Tertiary Grouped Background */
+  --surface-inset: rgba(255, 255, 255, 0.05);
+  --border-soft: rgba(84, 84, 88, 0.35);    /* Apple Separator */
+  --border-strong: rgba(84, 84, 88, 0.65);  /* Apple Opaque Separator */
+  --ring: rgba(10, 132, 255, 0.3);
+
+  /* Semantic colors (Apple iOS palette) */
+  --cyan: #32ADE6;   /* Cyan */
+  --mint: #34C759;   /* Green */
+  --violet: #AF52DE; /* Purple */
+  --amber: #FF9F0A;  /* Orange */
+  --red: #FF453A;    /* Red */
+
+  /* Primary Accent: Apple Blue */
+  --accent: #0A84FF;
+
+  /* Elevation shadows (Flat by default in Dark Mode) */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.6);
+  --shadow: var(--shadow-sm);
+
+  /* Spacing scale */
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 20px;
+  --space-lg: 32px;
+  --space-xl: 48px;
+  --section-gap: 32px;
+  --card-gap: 16px;
+}
+
+:root[data-theme="pearl"] {
+  color-scheme: light;
+  /* Core palette (Light Mode) */
+  --background: #F2F2F7;                    /* Apple System Grouped Background */
+  --foreground: #000000;
+  --muted: rgba(60, 60, 67, 0.6);           /* Apple Secondary Label */
+  --muted-strong: rgba(60, 60, 67, 0.85);   /* Apple Primary-ish Label */
+  --surface: #FFFFFF;                       /* Apple Secondary Grouped Background */
+  --surface-strong: #FFFFFF;
+  --surface-inset: rgba(0, 0, 0, 0.05);
+  --border-soft: rgba(60, 60, 67, 0.18);    /* Apple Separator */
+  --border-strong: rgba(60, 60, 67, 0.36);  /* Apple Opaque Separator */
+  --ring: rgba(0, 122, 255, 0.3);
+
+  /* Semantic colors (Apple iOS palette) */
+  --cyan: #32ADE6;
+  --mint: #34C759;
+  --violet: #AF52DE;
+  --amber: #FF9500;
+  --red: #FF3B30;
+
+  /* Primary Accent: Apple Blue */
+  --accent: #007AFF;
+
+  /* Elevation shadows (Subtle depth) */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
+  --shadow: var(--shadow-sm);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--background);
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(0, 212, 255, 0.28);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.cyber-app {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 18px 18px 112px;
+}
+
+.cyber-app-landing {
+  padding-bottom: 32px;
+}
+
+.cyber-main {
+  position: relative;
+  z-index: 2;
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.cyber-main-landing {
+  width: min(1240px, 100%);
+}
+
+/* Removed cyber-orbits for a cleaner aesthetic */
+
+.cyber-topbar {
+  position: sticky;
+  top: 16px;
+  z-index: 20;
+  display: flex;
+  width: min(1180px, 100%);
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0 auto;
+  border: 1px solid var(--border-soft);
+  border-radius: 18px;
+  background: rgba(8, 12, 24, 0.78);
+  padding: 10px 12px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(20px);
+}
+
+:root[data-theme="pearl"] .cyber-topbar {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(6, 17, 31, 0.14);
+  box-shadow: 0 2px 20px rgba(6, 17, 40, 0.10);
+}
+
+.cyber-brand {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  gap: 10px;
+}
+
+.cyber-icon-button {
+  display: inline-flex;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--accent);
+}
+
+.cyber-brand-mark {
+  display: inline-flex;
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+
+
+.cyber-brand-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cyber-brand-name,
+.cyber-brand-tagline {
+  display: block;
+  line-height: 1.1;
+}
+
+.cyber-brand-name {
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.cyber-brand-tagline {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+}
+
+.cyber-topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cyber-icon-button {
+  cursor: pointer;
+  transition: transform 0.16s ease, border-color 0.16s ease, background 0.16s ease;
+}
+
+.cyber-icon-button:hover {
+  border-color: rgba(0, 212, 255, 0.5);
+  background: rgba(0, 212, 255, 0.16);
+  transform: translateY(-1px);
+}
+
+.surface-chip {
+  border: 1px solid var(--border-soft);
+  background: var(--surface);
+  color: var(--foreground);
+  backdrop-filter: blur(14px);
+}
+
+.cyber-bottom-nav {
+  position: fixed;
+  z-index: 30;
+  bottom: 24px;
+  left: 50%;
+  display: flex;
+  max-width: calc(100vw - 32px);
+  transform: translateX(-50%);
+  gap: 4px;
+  border-radius: 999px;
+  background: rgba(28, 28, 30, 0.65);
+  padding: 6px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15), 0 0 0 0.5px rgba(255,255,255,0.1) inset;
+  backdrop-filter: blur(24px) saturate(180%);
+}
+
+:root[data-theme="pearl"] .cyber-bottom-nav {
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06), 0 0 0 0.5px rgba(0,0,0,0.05) inset;
+}
+
+.cyber-nav-item {
+  position: relative;
+  display: inline-flex;
+  min-width: 68px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  border-radius: 8px;
+  padding: 6px 10px;
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.cyber-nav-item.is-active {
+  color: var(--accent);
+}
+
+.cyber-nav-item:hover:not(.is-active) {
+  color: var(--foreground);
+}
+
+.cyber-card {
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Level 2 — important cards (camera panel, score card) */
+.cyber-card-raised {
+  border-radius: 20px;
+  background: var(--surface-strong);
+  box-shadow: var(--shadow-md);
+}
+
+/* Level 3 — maximum focal point (overlay) */
+.cyber-card-hero {
+  border-radius: 24px;
+  background: var(--surface-strong);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Tone indicators - Apple style: Just a subtle accent color instead of a massive glow */
+.cyber-card.cyber-tone-cyan   { border-top: 3px solid var(--cyan); }
+.cyber-card.cyber-tone-mint   { border-top: 3px solid var(--mint); }
+.cyber-card.cyber-tone-violet { border-top: 3px solid var(--violet); }
+.cyber-card.cyber-tone-amber  { border-top: 3px solid var(--amber); }
+.cyber-card.cyber-tone-red    { border-top: 3px solid var(--red); }
+.cyber-card.cyber-tone-muted  { border-top: 3px solid var(--border-soft); }
+
+.cyber-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.cyber-page-title {
+  font-family: inherit;
+  font-size: clamp(34px, 5vw, 40px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+}
+
+.cyber-eyebrow {
+  color: var(--accent);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ── Typography Scale ────────────────────────────── */
+.t-display {
+  font-family: inherit;
+  font-size: clamp(34px, 5vw, 40px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+}
+.t-heading-xl {
+  font-family: inherit;
+  font-size: clamp(28px, 3vw, 34px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+.t-heading-lg {
+  font-family: inherit;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+.t-heading-md {
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+.t-heading-sm {
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+.t-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted-strong);
+}
+.t-body {
+  font-size: 14px;
+  line-height: 1.72;
+  color: var(--muted-strong);
+}
+.t-caption {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.cyber-muted {
+  color: var(--muted);
+}
+
+.cyber-button {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: 14px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: opacity 0.15s ease, transform 0.15s ease, background 0.15s ease;
+}
+
+.cyber-button:active {
+  opacity: 0.7;
+  transform: scale(0.98);
+}
+
+.cyber-button-primary {
+  background: var(--accent);
+  color: #FFFFFF;
+}
+
+.cyber-button-primary:hover {
+  background: color-mix(in srgb, var(--accent) 85%, #000000);
+}
+
+.cyber-button-secondary {
+  background: rgba(120, 120, 128, 0.16); /* Apple Gray Light */
+  color: var(--accent);
+}
+
+.cyber-button-secondary:hover {
+  background: rgba(120, 120, 128, 0.24);
+}
+
+.cyber-button-ghost {
+  background: transparent;
+  color: var(--accent);
+}
+
+.cyber-button-ghost:hover {
+  background: rgba(120, 120, 128, 0.12);
+}
+
+.cyber-button-danger {
+  background: rgba(255, 59, 48, 0.12);
+  color: var(--red);
+}
+
+.cyber-button-danger:hover {
+  background: rgba(255, 59, 48, 0.2);
+}
+
+.score-ring {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  color: var(--cyan);
+  transition: filter 0.4s ease;
+}
+
+.score-ring svg {
+  position: absolute;
+  inset: 0;
+  transform: rotate(-90deg);
+}
+
+.score-ring-label {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.score-ring-label strong {
+  color: currentColor;
+  font-family: inherit;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.score-ring-label span {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.posture-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 6px;
+  background: color-mix(in srgb, currentColor 10%, transparent);
+  padding: 4px 8px;
+  color: var(--cyan);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.posture-badge > span {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.spark-bar {
+  height: 6px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--surface-strong);
+}
+
+.spark-bar > div {
+  position: relative;
+  height: 100%;
+  border-radius: inherit;
+  background: currentColor;
+  overflow: hidden;
+}
+
+.metric-tile {
+  border-radius: 16px;
+  background: var(--surface-inset);
+  padding: 16px;
+  color: var(--foreground);
+  transition: transform 0.15s ease;
+}
+
+.metric-tile:hover {
+  transform: translateY(-1px);
+}
+
+.metric-tile span,
+.metric-tile small {
+  display: block;
+  color: var(--muted-strong);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.metric-tile strong {
+  display: block;
+  margin-top: 6px;
+  color: var(--accent);
+  font-family: inherit;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.metric-tile small {
+  margin-top: 5px;
+}
+
+.cyber-tabs {
+  display: inline-flex;
+  border-radius: 9px;
+  background: rgba(118, 118, 128, 0.12); /* Apple light segmented control bg */
+  padding: 2px;
+}
+
+:root[data-theme="pearl"] .cyber-tabs {
+  background: rgba(118, 118, 128, 0.12);
+}
+
+.cyber-tabs button {
+  flex: 1;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--foreground);
+  cursor: pointer;
+  padding: 6px 14px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.cyber-tabs button.is-active {
+  background: var(--surface);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.12), 0 3px 1px rgba(0,0,0,0.04);
+}
+
+.cyber-toggle {
+  position: relative;
+  width: 51px;
+  height: 31px;
+  border-radius: 999px;
+  background: rgba(120, 120, 128, 0.32); /* Apple generic gray off state */
+  cursor: pointer;
+  border: none;
+  transition: background 0.2s ease;
+}
+
+.cyber-toggle span {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 27px;
+  height: 27px;
+  border-radius: 999px;
+  background: #FFFFFF;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15), 0 3px 1px rgba(0,0,0,0.06);
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.cyber-toggle.is-on {
+  background: var(--mint); /* iOS Green */
+}
+
+.cyber-toggle.is-on span {
+  transform: translateX(20px);
+}
+
+.cyber-tone-cyan { color: var(--cyan); }
+.cyber-tone-mint { color: var(--mint); }
+.cyber-tone-violet { color: var(--violet); }
+.cyber-tone-amber { color: var(--amber); }
+.cyber-tone-red { color: var(--red); }
+.cyber-tone-muted { color: var(--muted-strong); }
+
+/* Theme-aware colored panels (Subtle Apple-style tinted cards) */
+.cyber-panel-cyan { border-radius: 16px; background: color-mix(in srgb, var(--cyan) 10%, transparent); color: var(--cyan); }
+.cyber-panel-mint { border-radius: 16px; background: color-mix(in srgb, var(--mint) 10%, transparent); color: var(--mint); }
+.cyber-panel-violet { border-radius: 16px; background: color-mix(in srgb, var(--violet) 10%, transparent); color: var(--violet); }
+.cyber-panel-amber { border-radius: 16px; background: color-mix(in srgb, var(--amber) 10%, transparent); color: var(--amber); }
+.cyber-panel-red { border-radius: 16px; background: color-mix(in srgb, var(--red) 10%, transparent); color: var(--red); }
+
+/* Interactive selection cards (Apple inset grouped list style) */
+.cyber-selection-card {
+  background: var(--surface);
+  color: var(--foreground);
+  border-radius: 12px;
+  transition: background 0.15s ease;
+}
+
+.cyber-selection-card:hover:not(.is-active) {
+  background: var(--surface-inset);
+}
+
+.cyber-selection-card.is-active {
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  color: var(--accent);
+}
+
+.wearable-hotspot {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 28px;
+  min-height: 28px;
+  border: 1px solid color-mix(in srgb, var(--cyan) 55%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, #04111f 78%, transparent);
+  color: var(--cyan);
+  padding: 5px 9px;
+  box-shadow: 0 0 18px color-mix(in srgb, var(--cyan) 35%, transparent);
+  cursor: pointer;
+  transform: translateZ(0);
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.wearable-hotspot:hover,
+.wearable-hotspot.is-active {
+  border-color: color-mix(in srgb, var(--mint) 70%, transparent);
+  background: color-mix(in srgb, var(--cyan) 18%, #03101d);
+  box-shadow: 0 0 28px color-mix(in srgb, var(--cyan) 58%, transparent);
+  transform: scale(1.08);
+}
+
+.wearable-hotspot:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+}
+
+.wearable-hotspot-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: currentColor;
+  box-shadow: 0 0 16px currentColor;
+}
+
+.wearable-hotspot-label {
+  max-width: 140px;
+  white-space: nowrap;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.wearable-asset-contract {
+  width: min(320px, 70vw);
+  border: 1px solid color-mix(in srgb, var(--amber) 42%, transparent);
+  border-radius: 14px;
+  background: rgba(8, 12, 20, 0.82);
+  color: var(--foreground);
+  padding: 14px 16px;
+  text-align: center;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+}
+
+.wearable-asset-contract strong {
+  display: block;
+  color: var(--amber);
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: 14px;
+}
+
+.wearable-asset-contract span {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.camera-surface {
+  position: relative;
+  min-height: 320px;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, currentColor 28%, transparent);
+  border-radius: 16px;
+  background: #060a14;
+}
+
+.camera-surface video,
+.camera-surface svg,
+.camera-surface .camera-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.camera-surface video {
+  object-fit: cover;
+}
+
+.camera-grid {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.settings-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-bottom: 1px solid var(--border-soft);
+  padding: 14px 0;
+}
+
+.settings-row:last-child {
+  border-bottom: 0;
+}
+
+.settings-row-icon {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, currentColor 22%, transparent);
+  border-radius: 12px;
+  background: color-mix(in srgb, currentColor 10%, transparent);
+}
+
+/* ── Page layout utilities ─────────────────────── */
+.page-section { margin-top: var(--section-gap); }
+.page-section-lg { margin-top: var(--space-xl); }
+
+/* ── Range Input — fully custom ─────────────────── */
+.cyber-select,
+.cyber-range {
+  width: 100%;
+}
+
+.cyber-select {
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+  background: var(--surface-strong);
+  color: var(--foreground);
+  padding: 10px 12px;
+  outline: none;
+  transition: border-color 0.18s ease;
+}
+
+.cyber-select:hover {
+  border-color: var(--border-strong);
+}
+
+/* Custom range track + thumb */
+.cyber-range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--surface-inset);
+  outline: none;
+  cursor: pointer;
+  border: 1px solid var(--border-soft);
+}
+
+.cyber-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--gradient-brand);
+  box-shadow: 0 0 14px rgba(0,212,255,0.45);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.cyber-range::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 22px rgba(0,212,255,0.65);
+}
+
+.cyber-range::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--gradient-brand);
+  box-shadow: 0 0 14px rgba(0,212,255,0.45);
+  border: none;
+  cursor: pointer;
+}
+
+.cyber-select:focus,
+.cyber-range:focus-visible,
+.cyber-button:focus-visible,
+.cyber-icon-button:focus-visible,
+.cyber-nav-item:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+@media (max-width: 760px) {
+  .cyber-app {
+    padding: 12px 12px 100px;
+  }
+
+  .cyber-topbar {
+    top: 10px;
+    border-radius: 16px;
+  }
+
+  .cyber-brand-tagline {
+    display: none;
+  }
+
+  .cyber-bottom-nav {
+    bottom: 12px;
+    width: calc(100vw - 20px);
+    justify-content: space-between;
+    border-radius: 22px;
+  }
+
+  .cyber-nav-item {
+    min-width: 0;
+    flex: 1;
+    flex-direction: column;
+    gap: 3px;
+    padding: 8px 6px;
+    font-size: 9.5px;
+  }
+
+  .camera-surface {
+    min-height: 280px;
+  }
+}
+
+/* ── Orbit ambient animation ─────────────────────── */
+@keyframes orbit-drift-a {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.46; }
+  40%       { transform: translate(14px, -20px) scale(1.06); opacity: 0.52; }
+  70%       { transform: translate(-10px, 12px) scale(0.95); opacity: 0.4; }
+}
+@keyframes orbit-drift-b {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.46; }
+  35%       { transform: translate(-16px, 14px) scale(1.04); opacity: 0.5; }
+  65%       { transform: translate(10px, -8px) scale(0.97); opacity: 0.42; }
+}
+
+.cyber-orbit-one { animation: orbit-drift-a 14s ease-in-out infinite; }
+.cyber-orbit-two { animation: orbit-drift-b 18s ease-in-out infinite; }

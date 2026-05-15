@@ -1,0 +1,206 @@
+import type { LocaleMessages } from "@/locales/schema";
+
+export const viRecovery: LocaleMessages["recovery"] = {
+  page: {
+    badge: "Phục hồi và thả lỏng",
+    title: "Những nhịp phục hồi nhẹ nhàng, dễ chen vào ngày học và ngày làm việc.",
+    description:
+      "Màn hình này thêm cho sản phẩm một sắc thái chăm sóc cơ thể dịu hơn, để việc chỉnh tư thế không chỉ là sửa sai mà còn là phục hồi đúng nhịp.",
+    unwindEyebrow: "Gợi ý thư giãn tối nay",
+    unwindTitle: "Bài mở vai 6 phút",
+    unwindDescription:
+      "Một chuỗi động tác nhẹ để giải phóng phần ngực đang co cứng và kết thúc ngày với cảm giác phần thân trên được nâng đỡ tốt hơn.",
+    primaryCta: "Bắt đầu bài gợi ý",
+    secondaryCta: "Mở bài vai",
+  },
+  flow: {
+    recommendedEyebrow: "Gợi ý cho bạn",
+    safetyEyebrow: "Lưu ý vận động nhẹ",
+    stepLabel: "Bước",
+    remainingLabel: "Còn lại",
+    pauseCta: "Tạm dừng",
+    resumeCta: "Tiếp tục",
+    previousCta: "Trước",
+    nextCta: "Tiếp",
+    completeCta: "Hoàn tất reset",
+    cancelCta: "Đóng bài tập",
+    completedTitle: "Đã ghi nhận phục hồi",
+    completedDetail: "Bài reset này đã được tính vào recovery minutes cục bộ của bạn.",
+  },
+  filters: [
+    { value: "all", label: "Tất cả" },
+    { value: "neck", label: "Cổ" },
+    { value: "shoulders", label: "Vai" },
+    { value: "back", label: "Lưng" },
+    { value: "hips", label: "Hông" },
+  ],
+  cards: [
+    {
+      id: "desk-reset",
+      title: "Reset ngắn tại bàn",
+      description: "Đứng dậy, thở chậm và vận động nhẹ toàn thân trước phiên tập trung tiếp theo.",
+      duration: "5 phút",
+      durationSeconds: 300,
+      difficulty: "easy",
+      targetArea: "back",
+      intensity: "reset",
+      safetyNote: "Vận động nhẹ và dừng lại nếu bạn thấy đau, tê, chóng mặt hoặc khó chịu rõ rệt.",
+      steps: [
+        {
+          title: "Đứng dậy và thở",
+          instruction: "Đứng lên, thả lỏng gối và hít thở chậm trong khi để hai vai rơi xuống.",
+          durationSeconds: 60,
+        },
+        {
+          title: "Nhìn ra xa",
+          instruction: "Rời mắt khỏi màn hình, nhìn vào một điểm xa và thả lỏng hàm cùng mắt.",
+          durationSeconds: 60,
+        },
+        {
+          title: "Vươn lưng và nghiêng bên",
+          instruction: "Đan tay, vươn nhẹ lên cao rồi nghiêng nhẹ sang trái và phải.",
+          durationSeconds: 90,
+        },
+        {
+          title: "Chuẩn bị phiên tiếp theo",
+          instruction: "Ngồi lại, đặt bàn chân phẳng và đưa màn hình về khoảng cách dễ nhìn.",
+          durationSeconds: 90,
+        },
+      ],
+    },
+    {
+      id: "desk-neck-decompression",
+      title: "Thả cổ ngay tại bàn",
+      description: "Trượt cằm chậm, thả cơ thang và phối hợp nhịp thở để giảm tải cho cổ.",
+      duration: "4 phút",
+      durationSeconds: 240,
+      difficulty: "easy",
+      targetArea: "neck",
+      intensity: "reset",
+      safetyNote: "Giữ biên độ nhỏ và dừng lại nếu bạn thấy đau, tê ran hoặc khó chịu rõ rệt.",
+      steps: [
+        {
+          title: "Trượt cằm",
+          instruction: "Ngồi cao người và trượt đầu thẳng ra sau, không ngẩng cằm lên.",
+          durationSeconds: 60,
+        },
+        {
+          title: "Thả vai",
+          instruction: "Để hai vai rơi xa tai và thở chậm vào phần sườn.",
+          durationSeconds: 60,
+        },
+        {
+          title: "Thả cổ nhẹ",
+          instruction: "Hạ tai trái về vai trái, quay về giữa, rồi lặp lại bên phải.",
+          durationSeconds: 60,
+        },
+        {
+          title: "Reset khoảng cách màn hình",
+          instruction: "Đưa tai về lại trên vai và chỉnh màn hình về khoảng cách nhìn thoải mái.",
+          durationSeconds: 60,
+        },
+      ],
+    },
+    {
+      id: "shoulder-opener-sequence",
+      title: "Chuỗi mở vai nhẹ",
+      description: "Mở ngực, xoay vai nhẹ và giảm cảm giác vai cuộn về phía trước.",
+      duration: "6 phút",
+      durationSeconds: 360,
+      difficulty: "easy",
+      targetArea: "shoulders",
+      intensity: "ease-in",
+      safetyNote: "Chỉ giữ mức căng nhẹ. Dừng lại nếu đau ở vai, cổ hoặc cánh tay tăng lên.",
+      steps: [
+        {
+          title: "Nhún vai",
+          instruction: "Nâng vai nhẹ về phía tai, giữ rất ngắn, rồi thả vai xuống.",
+          durationSeconds: 90,
+        },
+        {
+          title: "Xoay vai",
+          instruction: "Xoay vai chậm về sau rồi về trước, giữ cổ thả lỏng.",
+          durationSeconds: 90,
+        },
+        {
+          title: "Mở ngực",
+          instruction: "Đặt tay sau đầu và ép nhẹ hai xương bả vai lại gần nhau.",
+          durationSeconds: 90,
+        },
+        {
+          title: "Reset tư thế bàn làm việc",
+          instruction: "Để khuỷu tay gần thân và kéo bàn phím, chuột về lại trong tầm với dễ chịu.",
+          durationSeconds: 90,
+        },
+      ],
+    },
+    {
+      id: "thoracic-mobility-arc",
+      title: "Mở chuyển động lưng trên",
+      description: "Một chuỗi chuyển động từ ngồi sang đứng giúp phần lưng trên lấy lại độ linh hoạt.",
+      duration: "8 phút",
+      durationSeconds: 480,
+      difficulty: "medium",
+      targetArea: "back",
+      intensity: "build",
+      safetyNote: "Di chuyển chậm và không vượt qua ngưỡng đau; bỏ qua động tác nào thấy nhói hoặc mất ổn định.",
+      steps: [
+        {
+          title: "Ngồi cao người",
+          instruction: "Ngồi hơi ra trước, đặt chân phẳng và xếp nhẹ phần sườn trên hông.",
+          durationSeconds: 90,
+        },
+        {
+          title: "Vươn lưng trên",
+          instruction: "Vươn hai tay ra trước, làm mềm lưng trên rồi trở lại tư thế ngồi cao.",
+          durationSeconds: 120,
+        },
+        {
+          title: "Nghiêng vòng cung",
+          instruction: "Vươn tay qua đầu và nghiêng nhẹ sang trái, phải mà không ép biên độ.",
+          durationSeconds: 120,
+        },
+        {
+          title: "Đứng lên reset",
+          instruction: "Đứng dậy, thở chậm, rồi ngồi lại với màn hình và bàn phím ở giữa người.",
+          durationSeconds: 150,
+        },
+      ],
+    },
+    {
+      id: "hip-reset-long-sitting",
+      title: "Reset hông sau khi ngồi lâu",
+      description: "Giải phóng độ căng vùng hông để xương chậu và lưng dưới ổn định hơn.",
+      duration: "7 phút",
+      durationSeconds: 420,
+      difficulty: "medium",
+      targetArea: "hips",
+      intensity: "ease-in",
+      safetyNote: "Giữ áp lực nhẹ và dừng lại nếu vùng hông, lưng hoặc gối bị đau.",
+      steps: [
+        {
+          title: "Ngồi bắt chéo hình số 4",
+          instruction: "Đặt một cổ chân lên gối đối diện và ngồi cao người trong nhịp thở nhẹ.",
+          durationSeconds: 120,
+        },
+        {
+          title: "Đổi bên",
+          instruction: "Lặp lại tư thế số 4 nhẹ nhàng ở bên còn lại.",
+          durationSeconds: 120,
+        },
+        {
+          title: "Nâng chân nhẹ",
+          instruction: "Ngồi ra trước và nâng một chân thẳng lên vài centimet, rồi đổi bên thật chậm.",
+          durationSeconds: 90,
+        },
+        {
+          title: "Reset hông và bàn chân",
+          instruction: "Đặt hai bàn chân phẳng và để xương chậu ổn định đều trước khi quay lại làm việc.",
+          durationSeconds: 90,
+        },
+      ],
+    },
+  ],
+  afterWarningLabel: "Rất hợp sau một quãng ngồi bắt đầu lệch tư thế",
+  previewFlowCta: "Mở bài tập",
+};

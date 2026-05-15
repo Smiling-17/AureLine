@@ -1,0 +1,206 @@
+import type { LocaleMessages } from "@/locales/schema";
+
+export const enRecovery: LocaleMessages["recovery"] = {
+  page: {
+    badge: "Recovery and reset",
+    title: "Elegant, low-friction recovery rituals for neck, shoulders, and back.",
+    description:
+      "This screen gives the product a softer wellness layer so posture coaching feels complete, not purely corrective.",
+    unwindEyebrow: "Tonight's unwind",
+    unwindTitle: "6-minute shoulder opener",
+    unwindDescription:
+      "A gentle sequence to release chest tightness and round out the day with better upper-body support.",
+    primaryCta: "Start recommended reset",
+    secondaryCta: "Open shoulder flow",
+  },
+  flow: {
+    recommendedEyebrow: "Recommended for you",
+    safetyEyebrow: "Gentle movement note",
+    stepLabel: "Step",
+    remainingLabel: "Remaining",
+    pauseCta: "Pause",
+    resumeCta: "Resume",
+    previousCta: "Previous",
+    nextCta: "Next",
+    completeCta: "Complete reset",
+    cancelCta: "Close flow",
+    completedTitle: "Recovery logged",
+    completedDetail: "This reset now counts toward your local recovery minutes.",
+  },
+  filters: [
+    { value: "all", label: "All" },
+    { value: "neck", label: "Neck" },
+    { value: "shoulders", label: "Shoulders" },
+    { value: "back", label: "Back" },
+    { value: "hips", label: "Hips" },
+  ],
+  cards: [
+    {
+      id: "desk-reset",
+      title: "Desk reset micro-break",
+      description: "Stand, breathe, and move through a gentle whole-body reset before the next focus block.",
+      duration: "5 min",
+      durationSeconds: 300,
+      difficulty: "easy",
+      targetArea: "back",
+      intensity: "reset",
+      safetyNote: "Move gently and stop if you feel pain, numbness, dizziness, or severe discomfort.",
+      steps: [
+        {
+          title: "Stand and breathe",
+          instruction: "Stand up, soften your knees, and take slow breaths while letting your shoulders drop.",
+          durationSeconds: 60,
+        },
+        {
+          title: "Look far away",
+          instruction: "Look away from the screen toward a far object and relax your jaw and eyes.",
+          durationSeconds: 60,
+        },
+        {
+          title: "Back and side reach",
+          instruction: "Interlace your fingers, reach overhead gently, and lean a little left and right.",
+          durationSeconds: 90,
+        },
+        {
+          title: "Set up the next block",
+          instruction: "Return to your chair, place feet flat, and bring the screen back to a comfortable distance.",
+          durationSeconds: 90,
+        },
+      ],
+    },
+    {
+      id: "desk-neck-decompression",
+      title: "Desk neck decompression",
+      description: "Slow chin tucks, upper trap release, and breathing to unload the neck.",
+      duration: "4 min",
+      durationSeconds: 240,
+      difficulty: "easy",
+      targetArea: "neck",
+      intensity: "reset",
+      safetyNote: "Keep the motion small and stop if you feel pain, tingling, or severe discomfort.",
+      steps: [
+        {
+          title: "Chin glide",
+          instruction: "Sit tall and glide your head straight back without lifting your chin.",
+          durationSeconds: 60,
+        },
+        {
+          title: "Shoulder drop",
+          instruction: "Let both shoulders fall away from your ears and breathe slowly into your ribs.",
+          durationSeconds: 60,
+        },
+        {
+          title: "Gentle neck relaxer",
+          instruction: "Lower your left ear toward the left shoulder, return to center, then repeat on the right.",
+          durationSeconds: 60,
+        },
+        {
+          title: "Screen distance reset",
+          instruction: "Bring your ears back over your shoulders and settle the monitor at a comfortable viewing distance.",
+          durationSeconds: 60,
+        },
+      ],
+    },
+    {
+      id: "shoulder-opener-sequence",
+      title: "Shoulder opener sequence",
+      description: "Open the chest, rotate gently, and free up rounded shoulder posture.",
+      duration: "6 min",
+      durationSeconds: 360,
+      difficulty: "easy",
+      targetArea: "shoulders",
+      intensity: "ease-in",
+      safetyNote: "Use a light stretch only. Stop if shoulder, neck, or arm pain increases.",
+      steps: [
+        {
+          title: "Shoulder shrugs",
+          instruction: "Raise your shoulders gently toward your ears, hold briefly, then relax them down.",
+          durationSeconds: 90,
+        },
+        {
+          title: "Shoulder rolls",
+          instruction: "Roll the shoulders backward slowly, then forward, keeping the neck relaxed.",
+          durationSeconds: 90,
+        },
+        {
+          title: "Chest opener",
+          instruction: "Place hands behind your head and gently squeeze the shoulder blades together.",
+          durationSeconds: 90,
+        },
+        {
+          title: "Desk posture reset",
+          instruction: "Let elbows rest near your body and bring the keyboard/mouse back within easy reach.",
+          durationSeconds: 90,
+        },
+      ],
+    },
+    {
+      id: "thoracic-mobility-arc",
+      title: "Thoracic mobility arc",
+      description: "A seated-to-standing flow that restores movement through the upper back.",
+      duration: "8 min",
+      durationSeconds: 480,
+      difficulty: "medium",
+      targetArea: "back",
+      intensity: "build",
+      safetyNote: "Move slowly and stay pain-free; skip any movement that feels sharp or unstable.",
+      steps: [
+        {
+          title: "Tall seated reset",
+          instruction: "Sit forward, place feet flat, and stack ribs gently over your hips.",
+          durationSeconds: 90,
+        },
+        {
+          title: "Upper-back reach",
+          instruction: "Reach both arms forward, soften your upper back, then return to a tall seat.",
+          durationSeconds: 120,
+        },
+        {
+          title: "Side arc",
+          instruction: "Reach overhead and lean a little left and right without forcing the range.",
+          durationSeconds: 120,
+        },
+        {
+          title: "Stand and reset",
+          instruction: "Stand up, breathe, then sit back down with the screen and keyboard centered.",
+          durationSeconds: 150,
+        },
+      ],
+    },
+    {
+      id: "hip-reset-long-sitting",
+      title: "Hip reset for long sitting",
+      description: "Release hip tightness so your pelvis and lower back can settle better.",
+      duration: "7 min",
+      durationSeconds: 420,
+      difficulty: "medium",
+      targetArea: "hips",
+      intensity: "ease-in",
+      safetyNote: "Keep pressure gentle and stop if the hip, back, or knee feels painful.",
+      steps: [
+        {
+          title: "Seated figure-four",
+          instruction: "Cross one ankle over the opposite knee and sit tall with gentle breathing.",
+          durationSeconds: 120,
+        },
+        {
+          title: "Switch sides",
+          instruction: "Repeat the same easy figure-four shape on the other side.",
+          durationSeconds: 120,
+        },
+        {
+          title: "Leg lift reset",
+          instruction: "Sit forward and lift one straight leg a few inches, then switch sides slowly.",
+          durationSeconds: 90,
+        },
+        {
+          title: "Pelvis and feet reset",
+          instruction: "Place both feet flat and let the pelvis settle evenly before returning to work.",
+          durationSeconds: 90,
+        },
+      ],
+    },
+  ],
+  afterWarningLabel: "Perfect after a warning posture block",
+  previewFlowCta: "Preview flow",
+};
